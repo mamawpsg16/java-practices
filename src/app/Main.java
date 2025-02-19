@@ -56,6 +56,7 @@ public class Main {
         controlFlow.unlabeledContinueStatement();
         controlFlow.labeledContinueStatement();
         controlFlow.yieldStatement();
+        // COMMENT
 
         int result = controlFlow.yieldStatementCalculate(Day.WEDNESDAY);
         System.out.println("Result: " + result);
