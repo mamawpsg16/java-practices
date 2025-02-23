@@ -5,6 +5,8 @@ import app.class_example.PersonRecordImmutable;
 import app.class_example.ProductRecordImmutable;
 import app.class_example.NumberAndStrings;
 import app.class_example.Pegasus;
+import app.class_example.PolymorphismExample.Subclass;
+import app.class_example.AbstractExample;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -313,9 +315,15 @@ public class Main {
 //        OverridingAndHidingMethods.Animal.testClassMethod();
 //        myAnimal.testInstanceMethod();
 
+//        Pegasus myApp = new Pegasus();
+//        System.out.println(myApp.identifyMyself());
 
-        Pegasus myApp = new Pegasus();
-        System.out.println(myApp.identifyMyself());
+        Subclass subClass = new Subclass();
+        subClass.printMethod();
+
+        AbstractExample abstractExample = new AbstractExample("Dawg");
+        abstractExample.makeSound();
+        abstractExample.sleep();
     }
 }
 
