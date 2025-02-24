@@ -1,15 +1,25 @@
 package app;
 
-import app.class_example.OverridingAndHidingMethods;
-import app.class_example.PersonRecordImmutable;
-import app.class_example.ProductRecordImmutable;
-import app.class_example.NumberAndStrings;
-import app.class_example.Pegasus;
-import app.class_example.PolymorphismExample.Subclass;
-import app.class_example.AbstractExample;
+import java.util.List;
+import java.util.Arrays;
+import java.util.ArrayList;
+
+//import app.generics.Util;
+//import app.generics.Pair;
+import app.generics.BoxBoundType;
+import app.generics.GenericMethods.Pair;
+import app.generics.GenericMethods.Util;
+import app.generics.TypeInference;
+import app.generics.wildcard.LowerBounded;
+import app.generics.wildcard.UpperBounded;
+import app.generics.wildcard.Unbounded;
+
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
+
+
 public class Main {
     public static void main(String[] args) {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
@@ -318,12 +328,108 @@ public class Main {
 //        Pegasus myApp = new Pegasus();
 //        System.out.println(myApp.identifyMyself());
 
-        Subclass subClass = new Subclass();
-        subClass.printMethod();
+//        Subclass subClass = new Subclass();
+//        subClass.printMethod();
+//
+//        AbstractExample abstractExample = new AbstractExample("Dawg");
+//        abstractExample.makeSound();
+//        abstractExample.sleep();
 
-        AbstractExample abstractExample = new AbstractExample("Dawg");
-        abstractExample.makeSound();
-        abstractExample.sleep();
+        /* LAMBDA  (parameters) -> { body } */
+//        MathOperation add = (a, b) -> a + b;
+//        LambdaCalculate lambda = new LambdaCalculate();
+//        System.out.println(lambda.calculate(10, 20, add));
+
+        /* GENERICS */
+//        GenericsExample generic = new GenericsExample();
+//        generic.sampleGeneric();
+//        generic.sampleNotGeneric();
+//
+//        Box<Integer> intBox = new Box<>();  // Box for Integer
+//        intBox.setValue(10);
+//        System.out.println(intBox.getValue());
+//
+//        Box<String> strBox = new Box<>();   // Box for String
+//        strBox.setValue("Hello");
+//        System.out.println(strBox.getValue());
+//
+//        Util.print(100);       // Works with Integer
+//        Util.print("Hello");   // Works with String
+//        Util.print(5.5);       // Works with Double
+
+//        Printable<String> strPrinter = new Printer<>();
+//        strPrinter.print("Hello World!");
+//
+//        Printable<Integer> intPrinter = new Printer<>();
+//        intPrinter.print(123);
+
+//        NumericBox<Integer> intBox = new NumericBox<>(10);
+//        System.out.println(intBox.getDoubleValue());
+//
+//        NumericBox<Double> doubleBox = new NumericBox<>(5.5);
+//        System.out.println(doubleBox.getDoubleValue());
+        // NumericBox<String> strBox = new NumericBox<>("Hello");  // ❌ Compile error
+
+//        List<Integer> intList = Arrays.asList(1, 2, 3, 4, 5);
+//        List<String> strList = Arrays.asList("Apple", "Banana", "Cherry");
+//        // Calling printList method from WildcardExample
+//        WildcardExample.printList(intList);
+//        WildcardExample.printList(strList);
+
+//        Pair<String, Integer> p1 = new OrderedPair<String, Integer>("Even", 8);
+//        System.out.println(p1.getKey());
+//        Pair<String, String>  p2 = new OrderedPair<String, String>("hello", "world");
+//        System.out.println(p2.getValue());
+
+        // PAIR
+//        Pair<Integer, String> p1 = new Pair<>(1, "apple");
+//        Pair<Integer, String> p2 = new Pair<>(2, "pear");
+//        boolean same1 = Util.<Integer, String>compare(p1, p2);
+//        boolean same2 = Util.compare(p1, p2);
+//        System.out.println(same1);
+//        System.out.println(same2);
+
+        // BOUND TYPE
+//        BoxBoundType<Integer> intBox = new BoxBoundType<>();  // Valid
+//        BoxBoundType<Double> doubleBox = new BoxBoundType<>(); // Valid
+//        intBox.set(1);
+//        System.out.println(intBox.get());
+//        doubleBox.set(5.0);
+//        System.out.println(doubleBox.get());
+
+        /* TYPE INFERENCE */
+        //BEFORE
+//        List<String> list = new ArrayList<String>();
+        // AFTER
+//        List<String> list = new ArrayList<>();
+
+//        var result = TypeInference.Util.getValue(100); // Compiler infers Integer
+//        System.out.println(result); // 100
+
+        /* WILD CARDS */
+        //UPPER BOUNDED
+//        List<Integer> intList = Arrays.asList(1, 2, 3);
+//        List<Double> doubleList = Arrays.asList(1.5, 2.5, 3.5);
+//
+//        System.out.println(UpperBounded.sumOfList(intList)); // Output: 6.0
+//        System.out.println(UpperBounded.sumOfList(doubleList)); // Output: 7.5
+//
+        //UNBOUNDED
+//        List<Integer> intList = List.of(1, 2, 3);
+//        List<String> strList = List.of("A", "B", "C");
+//
+//        Unbounded.printList(intList); // Works
+//        Unbounded.printList(strList); // Works
+//
+        //LOWER BOUNDED
+        List<Number> numberList = new ArrayList<>();
+        LowerBounded.addNumbers(numberList); // Works since Number is a superclass of Integer
+
+        List<Object> objectList = new ArrayList<>();
+        LowerBounded.addNumbers(objectList); // Works since Object is a superclass of Integer
+
+        System.out.println(numberList); // Output: [10, 20]
+        System.out.println(objectList); // Output: [10, 20]
     }
 }
 
