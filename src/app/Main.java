@@ -1,19 +1,16 @@
 package app;
 
-import java.util.List;
-import java.util.Arrays;
-import java.util.ArrayList;
-
 //import app.generics.Util;
 //import app.generics.Pair;
-import app.generics.BoxBoundType;
-import app.generics.GenericMethods.Pair;
-import app.generics.GenericMethods.Util;
-import app.generics.TypeInference;
-import app.generics.wildcard.LowerBounded;
-import app.generics.wildcard.UpperBounded;
-import app.generics.wildcard.Unbounded;
 
+import app.exceptions.CatchHandling;
+import app.exceptions.ThrowExceptions;
+import app.lambda.functional_interfaces.*;
+import app.lambda.functional_interfaces.method_references.*;
+import app.lambda.writing_comparators.Person;
+
+import java.io.IOException;
+import java.util.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -46,7 +43,7 @@ public class Main {
 //        var  scannerExample = new ScannerExample();
 //        scannerExample.scan();
 //        scannerExample.introduce();
-//
+          /* ARRAY */
 //        ArrayDemo array = new ArrayDemo();
 //        array.arrayInitialization();
 //        array.copyArray();
@@ -230,21 +227,6 @@ public class Main {
 //        AbstractEnumDayOfWeek day = AbstractEnumDayOfWeek.MONDAY;
 //        System.out.println(day.getMessage());
 
-        /* LAMBDA */
-        // EXAMPLE #1
-//        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
-//
-//        numbers.stream()
-//                .filter(n -> n % 2 == 0) // Keep even numbers
-//                .forEach(n -> System.out.println(n));
-
-        // EXAMPLE #2
-//        List<String> names = Arrays.asList("John", "Alice", "Bob");
-//
-//        Collections.sort(names, (a, b) -> a.compareTo(b));
-//
-//        System.out.println(names);
-
         /* RECORD IMMUTABLE CLASS */
 //        PersonRecordImmutable p = new PersonRecordImmutable("Alice", 30);
 //
@@ -397,6 +379,7 @@ public class Main {
 //        doubleBox.set(5.0);
 //        System.out.println(doubleBox.get());
 
+
         /* TYPE INFERENCE */
         //BEFORE
 //        List<String> list = new ArrayList<String>();
@@ -422,14 +405,286 @@ public class Main {
 //        Unbounded.printList(strList); // Works
 //
         //LOWER BOUNDED
-        List<Number> numberList = new ArrayList<>();
-        LowerBounded.addNumbers(numberList); // Works since Number is a superclass of Integer
+//        List<Number> numberList = new ArrayList<>();
+//        LowerBounded.addNumbers(numberList); // Works since Number is a superclass of Integer
+//
+//        List<Object> objectList = new ArrayList<>();
+//        LowerBounded.addNumbers(objectList); // Works since Object is a superclass of Integer
+//
+//        System.out.println(numberList); // Output: [10, 20]
+//        System.out.println(objectList); // Output: [10, 20]
 
-        List<Object> objectList = new ArrayList<>();
-        LowerBounded.addNumbers(objectList); // Works since Object is a superclass of Integer
+        /* UTILITIES */
+//        Utilities.arrayExample();
+//        Utilities.listExample();
+//        Utilities.setExample();
+//        Utilities.mapExample();
 
-        System.out.println(numberList); // Output: [10, 20]
-        System.out.println(objectList); // Output: [10, 20]
+        /* TRY CATCH */
+//        TryCatchExample tryCatchExample = new TryCatchExample();
+
+        /* THROW */
+//        ThrowExample.validateAge(18);
+//        ThrowExample.validateAge(17);
+
+        /* THROWS */
+//        try {
+//            ThrowsExample.checkFile();
+//        } catch (IOException e) {
+//            System.out.println("Caught: " + e.getMessage());
+//        }
+
+        /* FILE HANDLING */
+        //READ
+//        ReadFileExample.read("test.txt");
+
+        //WRITE & READ
+//        WriteFileExample.write();
+//        ReadFileExample.read("output.txt");
+
+        /* THREADS & CONCURRENCY */
+        //Creating a Thread using Runnable
+//        Thread thread = new Thread(new RunnableExample()); // Runnable passed to Thread
+//        thread.start(); // Starts the thread
+
+        //Creating a Thread using Thread Class
+//        ThreadExample thread1 = new ThreadExample(); // Directly creating a thread object
+//        thread1.start();
+
+        //Use Thread With Join To Wait for the Thread
+//        ThreadJoin threadJoin = new ThreadJoin();
+//        threadJoin.start();
+
+        // TO MAKE THE MAIN THREAD WAIT THE CREATED THREAD
+//        try {
+//            threadJoin.join();  // Wait for t to finish
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        System.out.println("Main thread resumes after it finishes.");
+
+        /* GENERICS RESTRCTIONS */
+
+//        StudentsDetails<int, character> p = new StudentsDetails<>(9,'a'); //ERROR AS int and character is not reference type
+//        StudentsDetails<Integer, String> students = new StudentsDetails<>();
+//        students.put(1, "Kevin"); // WILL BE OVERRIDEN OF THE KENNETH DATA
+//        students.put(1, "Kenneth");
+//        students.put(2, "Rojenson");
+//        students.getStudents();
+
+        /* LAMBDA */
+        // EXAMPLE #1
+//        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+//
+//        numbers.stream()
+//                .filter(n -> n % 2 == 0) // Keep even numbers
+//                .forEach(n -> System.out.println(n));
+
+        // EXAMPLE #2
+//        List<String> names = Arrays.asList("John", "Alice", "Bob");
+//
+//        Collections.sort(names, (a, b) -> a.compareTo(b));
+//
+//        System.out.println(names);
+
+//        MyFunction myLambda = () -> System.out.println("Hello, Lambda!");
+//        myLambda.sayHello(); // Calls the lambda function
+
+//        A lambda expression must implement the single abstract method of a functional interface.
+//        MathOperationLambda addition = (a, b) -> a + b; // Implements operate(a, b)
+//        System.out.println(addition.operate(5, 3)); // Output: 8
+//
+//        StringManipulator toUpper = s -> s.toUpperCase();
+//        System.out.println(toUpper.manipulate("hello"));
+
+        //Capturing Local Values (Effectively Final Variables)
+//        int factor = 2; // Must be effectively final
+//        MathOperationLambda multiply = (a, b) -> a * b * factor;
+//        System.out.println(multiply.operate(3, 4));
+
+        //Serialization
+//        LambdaSerialization.serialize();
+//        LambdaSerialization.deserialize();
+
+        //Functional Interface (LAMBDA)
+
+        //SUPPLIER - do not take any argument, return something
+//        SupplierExample.supplier();
+//
+//        Supplier<String> supplier = () -> "Hello Duke! \n";
+//        System.out.println(supplier.get());
+//
+//        Random random = new Random(314L);
+//        Supplier<Integer> newRandom = () -> random.nextInt(10);
+//
+//        for (int index = 0; index < 5; index++) {
+//            System.out.println(newRandom.get() + " ");
+//        }
+
+        //CONSUMER - take an argument, do not return anything
+//        ConsumerExample.consumer();
+//        Consumer<String> printer = s -> System.out.println(s);
+//        printer.accept("Nice ka Brodie");
+//
+//        Random randomNumber = new Random();
+//        BiConsumer<Random, Integer> randomNumberPrinter =
+//                (random, number) -> {
+//                    for (int i = 0; i < number; i++) {
+//                        System.out.println("next random = " + ( random.nextInt(50) + 1));
+//                    }
+//                };
+//        randomNumberPrinter.accept(randomNumber, 5);
+
+        //PREDICATE -  take an argument, return a boolean
+//        Predicate<String> length3 = s -> s.length() == 3;
+//        String word = "ABC"; // any word
+//        boolean isOfLength3 = length3.test(word);
+//        System.out.println("Is of length 3? " + isOfLength3);
+//
+//        IntPredicate isGreaterThan10 = i -> i > 10;
+//        boolean isGreaterThan = isGreaterThan10.test(5);
+//        System.out.println("Is Greater than 10 ? " + isGreaterThan);
+
+        //BI-PREDICATE
+//        BiPredicate<String, Integer> isOfLength = (word1, len) -> word1.length() == len;
+//
+//        String word1 = "QWERT";
+//        int length = 5;
+//
+//        boolean isWordOfLength5 = isOfLength.test(word1, length); // Pass both arguments
+//        System.out.println(isWordOfLength5); // false (since "QWERTY" has length 6)
+
+        //Passing a Predicate to a Collection
+//        PredicateExample.predicate();
+//        List<String> immutableStrings = List.of("one", "two", "three", "four", "five");
+//        List<String> strings = new ArrayList<>(immutableStrings);
+//        Predicate<String> isEvenLength = s -> s.length() % 2 == 0;
+//        strings.removeIf(isEvenLength);
+//        System.out.println("strings = " + strings);
+
+        //FUNCTION - take an argument, return something
+//        FunctionExample.function();
+//        Function<String, Integer> toLength = s -> s.length();
+//        String word2 = "Hello World"; // any kind of word will do
+//        int length1 = toLength.apply(word2);
+//        System.out.println("Length of Word2 = " + length1);
+//
+//        List<String> strings = Arrays.asList("one", "two", "three");
+//        UnaryOperator<String> toUpperCase = word3 -> word3.toUpperCase();
+//        strings.replaceAll(toUpperCase);
+//        System.out.println(strings);
+
+        //FULL EXAMPLE OF FUNCTIONAL INTERFACES
+//        FunctionalInterfacesExample.fullExample();
+
+        /* LAMBDA (METHOD REFERENCE) */
+        //Writing Static Method References
+//        MethodReference.example();
+//        StaticMethodReference.example();
+//        UnboundMethodReference.example();
+//        BoundMethodReference.example();
+//        ConstructorMethodReference.example();
+
+        // Combining, Chaining, Composing
+//        PredicateChainingExample.example();
+//        PredicateFactoryMethodExample.example();
+//        ConsumerChainingExample.example();
+//        FunctionChainingExample.example();
+//        IdentityFunctionExample.example();
+
+        /* WRITING COMPARATORS */
+        // Create a list of Person objects
+//        List<Person> people = new ArrayList<>();
+//        people.add(new Person("Alice", 30, 50000.0));
+//        people.add(new Person("Bob", 25, null));      // salary is null
+//        people.add(new Person("Charlie", 30, 60000.0));
+//        people.add(new Person("David", 40, 70000.0));
+//        people.add(new Person("Eve", 25, 45000.0));
+
+        // 1. Implementing a Comparator with a Lambda Expression
+        // Sorting by age using a lambda expression
+//        people.sort((Person p1, Person p2) -> Integer.compare(p1.getAge(), p2.getAge()));
+//        System.out.println("Sorted by age using lambda:");
+//        people.forEach(System.out::println);
+
+        // 2. Using a Factory Method to Create a Comparator
+        // Using Comparator.comparing to create a comparator that sorts by name
+//        Comparator<Person> nameComparator = Comparator.comparing(person -> person.getName());
+//        people.sort(nameComparator);
+//        System.out.println("\nSorted by name using Comparator.comparing:");
+//        people.forEach(System.out::println);
+
+        // 3. Chaining Comparators
+        // First, sort by age, then by name if ages are equal
+//        Comparator<Person> ageThenNameComparator = Comparator
+//                .comparing((Person person) -> person.getAge())
+//                .thenComparing(person -> person.getName());
+//        people.sort(ageThenNameComparator);
+//        System.out.println("\nSorted by age then name using chaining:");
+//        people.forEach(System.out::println);
+
+        // 4. Specialized Comparators
+        // Using Comparator.comparingInt to compare int fields (age) directly
+//        people.sort(Comparator.comparingInt(person -> person.getAge()));
+//        System.out.println("\nSorted by age using specialized Comparator.comparingInt:");
+//        people.forEach(System.out::println);
+
+        // 5. Comparing Comparable Objects Using Their Natural Order
+        // Sorting a list of strings that are naturally comparable (alphabetical order)
+//        List<String> names = Arrays.asList("Charlie", "Alice", "Bob", "David");
+//        names.sort(Comparator.naturalOrder());
+//        System.out.println("\nSorted names using natural order:");
+//        names.forEach(System.out::println);
+
+        // 6. Reversing a Comparator
+        // Sorting names in reverse alphabetical order using the reversed() method
+//        names.sort(Comparator.<String>naturalOrder().reversed());
+//        names.sort((s1, s2) -> s2.compareTo(s1));
+//        System.out.println("\nSorted names in reverse order:");
+//        names.forEach(System.out::println);
+
+
+        // 7. Dealing with Null Values
+        // Sorting people by salary and placing null values first using Comparator.nullsFirst
+//        Comparator<Person> salaryComparator = Comparator.comparing(
+//                person -> person.getSalary(),
+//                Comparator.nullsFirst(Double::compareTo)
+//        );
+//        people.sort(salaryComparator);
+//        System.out.println("\nSorted by salary with nulls first:");
+//        people.forEach(System.out::println);
+
+        /* EXCEPTIONS */
+        //If an exception occurs in the try block, it is caught in the catch block.
+//        CatchHandling.tryCatchExample();
+        //We can catch multiple exceptions in a single catch block using | (pipe operator).
+//        CatchHandling.multiCatching();
+        //The finally block always executes, regardless of whether an exception occurs.
+//        CatchHandling.finallyBlock();
+        //When working with resources like files, we can use try-with-resources to ensure they are closed automatically.
+//        CatchHandling.tryWithResourcesExample();
+        //If multiple exceptions occur in try-with-resources, only the primary exception is caught, while others are suppressed.
+//        CatchHandling.suppressedExceptionExample();
+        //Classes that implement AutoCloseable or Closeable can be used in try-with-resources.
+//        CatchHandling.autoCloseableExample();
+        //combining everything:
+//        CatchHandling.exceptionHandlingExample();
+
+        //THROW EXCEPTIONS
+
+        //Specifying the Exceptions Thrown by a Method (throws Keyword) - If a method can cause an exception that it does not handle,
+        // it must specify that exception using the throws keyword.
+        try {
+            ThrowExceptions.readFile();  // Must handle IOException
+        } catch (IOException e) {
+            System.out.println("Exception caught: " + e);
+        }
+        //How to Throw Exceptions (throw Keyword)
+        try {
+            ThrowExceptions.validateAge(18); // This will throw an exception
+        } catch (IllegalArgumentException e) {
+            System.out.println("Caught exception: " + e.getMessage());
+        }
     }
 }
 
