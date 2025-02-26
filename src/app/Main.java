@@ -3,11 +3,29 @@ package app;
 //import app.generics.Util;
 //import app.generics.Pair;
 
+import app.api_collections.CollectionInterface;
+import app.api_collections.CreatingImmutableCollections;
+import app.api_collections.ExtendingCollectionWithList;
+import app.api_collections.HandlingMapValuesWithLambda;
+import app.api_collections.IteratingOverCollections;
+import app.api_collections.KeepingKeysSortedWithSortedMapAndNavigableMap;
+import app.api_collections.ManagingContentOfMap;
+import app.api_collections.StoreElementsInStackAndQueues;
+import app.api_collections.UsingMapsKeyValuePair;
 import app.exceptions.CatchHandling;
+import app.exceptions.ChainedException;
+import app.exceptions.CustomException;
+import app.exceptions.CustomExceptionExample;
+import app.exceptions.Error;
+import app.exceptions.ExceptionExample;
+import app.exceptions.StackTrace;
 import app.exceptions.ThrowExceptions;
 import app.lambda.functional_interfaces.*;
 import app.lambda.functional_interfaces.method_references.*;
 import app.lambda.writing_comparators.Person;
+import app.exceptions.Throwable;
+import app.refactory_to_functional_style.ConvertingSimpleLoops;
+import app.refactory_to_functional_style.ReadingExternalResource;
 
 import java.io.IOException;
 import java.util.*;
@@ -674,17 +692,119 @@ public class Main {
 
         //Specifying the Exceptions Thrown by a Method (throws Keyword) - If a method can cause an exception that it does not handle,
         // it must specify that exception using the throws keyword.
-        try {
-            ThrowExceptions.readFile();  // Must handle IOException
-        } catch (IOException e) {
-            System.out.println("Exception caught: " + e);
-        }
+//        try {
+//            ThrowExceptions.readFile();  // Must handle IOException
+//        } catch (IOException e) {
+//            System.out.println("Exception caught: " + e);
+//        }
+//
         //How to Throw Exceptions (throw Keyword)
-        try {
-            ThrowExceptions.validateAge(18); // This will throw an exception
-        } catch (IllegalArgumentException e) {
-            System.out.println("Caught exception: " + e.getMessage());
-        }
+//        try {
+//            ThrowExceptions.validateAge(18); // This will throw an exception
+//        } catch (IllegalArgumentException e) {
+//            System.out.println("Caught exception: " + e.getMessage());
+//        }
+
+        //THROWABLE
+//        Throwable.example();
+
+        // ERROR CLASS
+//        try {
+//            Error.recursiveMethod();
+//        } catch (StackOverflowError e) {
+//            System.out.println("Stack Overflow Error occurred!");
+//        }
+
+        //EXCEPTION
+//        ExceptionExample.example();
+
+        //CHAINED EXCEPTION
+
+        //These constructors are available in:
+        //Exception
+        //RuntimeException
+        //Error
+//        try {
+//            ChainedException.method1();
+//        } catch (Exception e) {
+//            System.out.println("Caught Exception: " + e);
+//            System.out.println("Root Cause: " + e.getCause());
+//        }
+
+        //STACK TRACE
+//        StackTrace.example();
+
+        //CUSTOM EXCEPTION
+//        try {
+//            CustomExceptionExample.checkValue(-5);
+//        } catch (CustomException e) {
+//            System.out.println("Caught: " + e.getMessage());
+//        }
+
+        /* REFACTORING TO FUNCTIONAL STYLE */
+        //SIMPLE LOOPS
+//        ConvertingSimpleLoops.simpleLoops();
+
+        //ITERATING WITH STEPS
+//        ConvertingSimpleLoops.iteratingWithSteps();
+
+        //UNBOUNDED WITH A BREAK AND STEPS
+//        ConvertingSimpleLoops.unboundedIterationWithBreak();
+
+        //ITERATING WITH FOREACH
+//        ConvertingSimpleLoops.iteratingWithForeach();
+
+        //ITERATION WITH TRANSFORMATION
+//        ConvertingSimpleLoops.convertingIterationWithTransformation();
+
+        //CONVERTING DATA SOURCES TO STREAMS
+//        ReadingExternalResource.imperativeStyle();
+//        ReadingExternalResource.functionalStyle();
+
+        /* COLLECTIONS */
+        //COLLECTION INTERFACE
+//        CollectionInterface.example();
+
+        //ITERATING OVER COLLECTIONS WITH ITERATE PATTERN
+//        IteratingOverCollections.example();
+
+        /* LISTS */
+//        ExtendingCollectionWithList.ListExample();
+
+        /* IMMUTABLE COLLECTIONS*/
+//        CreatingImmutableCollections.immutableCollectionExample();
+//        CreatingImmutableCollections.arrayToListExample();
+//        CreatingImmutableCollections.unmodifiableCollectionExample();
+//        CreatingImmutableCollections.changeOrderOfList();
+//        CreatingImmutableCollections.shuffleExample();
+//        CreatingImmutableCollections.rotateExample();
+//        CreatingImmutableCollections.reverseExample();
+//        CreatingImmutableCollections.swapExample();
+
+        /* STACKS AND QUEUES */
+//        StoreElementsInStackAndQueues.pushPopAndPeeking();
+//        StoreElementsInStackAndQueues.queueExample();
+
+        /* MAPS */
+//        UsingMapsKeyValuePair.mapExample();
+//        UsingMapsKeyValuePair.mapFactoryExample();
+//        UsingMapsKeyValuePair.mapMethodsExample();
+
+        //Managing the Content of a Map
+//        ManagingContentOfMap.addKeyValueToMap();
+//        ManagingContentOfMap.getValueFromKey();
+
+        //Handling Map Values with Lambda
+//        HandlingMapValuesWithLambda.example();
+//        HandlingMapValuesWithLambda.computeExample();
+//        HandlingMapValuesWithLambda.computeIfAbsentExample();
+//        HandlingMapValuesWithLambda.computeIfPresentExample();
+//        HandlingMapValuesWithLambda.mergeExample();
+//        HandlingMapValuesWithLambda.mergeWithNullExample();
+
+        //Keeping Keys Sorted With SortedMap And NavigableMap
+        KeepingKeysSortedWithSortedMapAndNavigableMap.sortedMapExample();
+        KeepingKeysSortedWithSortedMapAndNavigableMap.navigableMapExample();
     }
 }
 

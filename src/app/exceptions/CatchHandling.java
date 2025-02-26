@@ -45,9 +45,9 @@ public class CatchHandling {
         } catch (Exception e) {
             System.out.println("Caught: " + e.getMessage());
             // Retrieve suppressed exceptions
-            for (Throwable suppressed : e.getSuppressed()) {
-                System.out.println("Suppressed: " + suppressed.getMessage());
-            }
+//            for (Throwable suppressed : e.getSuppressed()) {
+//                System.out.println("Suppressed: " + suppressed.getMessage());
+//            }
         }
     }
 
