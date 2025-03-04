@@ -1,4 +1,2 @@
-Hello World
-Its GOOD TO BE Hear
-HEllo
-AWF HELLO Hello
+Hello, this is a Java I/O example.
+This line is written to the file.

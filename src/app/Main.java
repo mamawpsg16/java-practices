@@ -12,6 +12,18 @@ import app.api_collections.KeepingKeysSortedWithSortedMapAndNavigableMap;
 import app.api_collections.ManagingContentOfMap;
 import app.api_collections.StoreElementsInStackAndQueues;
 import app.api_collections.UsingMapsKeyValuePair;
+import app.date_time.ClockClass;
+import app.date_time.DateClass;
+import app.date_time.DateTimeClass;
+import app.date_time.DayOfWeekAndMonthEnums;
+import app.date_time.InstantClass;
+import app.date_time.LegacyDateTimeCode;
+import app.date_time.LocalDateAndTImeClass;
+import app.date_time.ParsingAndFormatting;
+import app.date_time.PeriodDuration;
+import app.date_time.StandardCalendar;
+import app.date_time.TemporalPackage;
+import app.date_time.TimezoneAndOffset;
 import app.exceptions.CatchHandling;
 import app.exceptions.ChainedException;
 import app.exceptions.CustomException;
@@ -20,6 +32,7 @@ import app.exceptions.Error;
 import app.exceptions.ExceptionExample;
 import app.exceptions.StackTrace;
 import app.exceptions.ThrowExceptions;
+import app.input_output.FileIOExample;
 import app.lambda.functional_interfaces.*;
 import app.lambda.functional_interfaces.method_references.*;
 import app.lambda.writing_comparators.Person;
@@ -803,8 +816,67 @@ public class Main {
 //        HandlingMapValuesWithLambda.mergeWithNullExample();
 
         //Keeping Keys Sorted With SortedMap And NavigableMap
-        KeepingKeysSortedWithSortedMapAndNavigableMap.sortedMapExample();
-        KeepingKeysSortedWithSortedMapAndNavigableMap.navigableMapExample();
+//        KeepingKeysSortedWithSortedMapAndNavigableMap.sortedMapExample();
+//        KeepingKeysSortedWithSortedMapAndNavigableMap.navigableMapExample();
+
+        /* INPUT OUTPUT */
+//        FileIOExample.readingWritingText();
+//        FileIOExample.pathExample();
+
+        /* DATETIME */
+//        DateTimeClass.localDateExample();
+//        DateTimeClass.localDateTimeExample();
+//        DateTimeClass.zonedAndOffsetDateTimeExample();
+//        DateTimeClass.nonIsoCalendarExample();
+
+        //STANDARD CALENDAR
+//        StandardCalendar.example();
+
+        // DAY OF WEEK AND MONTH ENUM
+//        DayOfWeekAndMonthEnums.dayOfWeek();
+//        DayOfWeekAndMonthEnums.month();
+
+        //DATE
+//        DateClass.localDateClass();
+//        DateClass.yearMonthClass();
+//        DateClass.monthDayClass();
+//        DateClass.yearClass();
+
+        //LOCAL TIME AND LOCAL DATETIME
+//        LocalDateAndTImeClass.example();
+
+        //TIMEZONE  AND OFFSET
+//        TimezoneAndOffset.zoneIdAndOffset();
+//        TimezoneAndOffset.zonedDateTime();
+//        TimezoneAndOffset.offSetDateTime();
+//        TimezoneAndOffset.offsetTime();
+
+        //INSTANT
+//        InstantClass.example();
+
+        //PARSING AND FORMATTING
+//        ParsingAndFormatting.example();
+
+        //TEMPORAL
+//        TemporalPackage.temporal();
+//        TemporalPackage.temporalFieldsAndUnits();
+//        TemporalPackage.temporalAdjusters();
+
+        //Period Duration
+//        PeriodDuration.durationTimeBased();
+//        PeriodDuration.durationDateBased();
+//        PeriodDuration.chronoUnitBetween();
+
+        /* CLOCK */
+//        ClockClass.getCurrentTime();
+//        ClockClass.getSystemUtc();
+//        ClockClass.setClockAsFixed();
+//        ClockClass.offSet();
+
+        //Legacy Date-Time Code
+        LegacyDateTimeCode.dateToInstantExample();
+        LegacyDateTimeCode.formattingDates();
+
     }
 }
 
